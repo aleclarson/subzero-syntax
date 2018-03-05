@@ -1,0 +1,46 @@
+// This defines all syntax variables that syntax themes must implement when they
+// include a syntax-variables.less file.
+
+@bkg: #031217;
+@txt: #4CA4BF;
+@hil: lighten(@bkg, 5%);
+
+// Language colors
+@err-color: #F73161;
+@var-color: #BBECFA;
+@num-color: #F5EF93;
+@func-color: #19FFE4;
+@const-color: #93DFF5;
+@string-color: #64FAA2;
+@comment-color: #236275;
+@keyword-color: #247891;
+@bracket-color: shade(lighten(@keyword-color, 12%), 16%);
+
+// General colors
+@syntax-text-color: @txt;
+@syntax-cursor-color: darken(saturate(@func-color, 100%), 15%);
+@syntax-selection-color: @hil;
+@syntax-background-color: @bkg;
+@syntax-cursor-line: @hil;
+@syntax-invisible-color: @bkg;
+
+// Guide colors
+@syntax-wrap-guide-color: lighten(@bkg, 9%);
+@syntax-indent-guide-color: @bkg;
+@syntax-invisible-character-color: @bkg;
+
+// For find and replace markers
+@syntax-result-marker-color: #e36209;
+@syntax-result-marker-color-selected: #fff8f2;
+
+// Gutter colors
+@syntax-gutter-text-color: @txt;
+@syntax-gutter-text-color-selected: darken(@txt, 10%);
+@syntax-gutter-background-color: @bkg;
+@syntax-gutter-background-color-selected: darken(@bkg, 8%);
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed: @string-color;
+@syntax-color-added: @string-color;
+@syntax-color-modified: @var-color;
+@syntax-color-removed: @err-color;

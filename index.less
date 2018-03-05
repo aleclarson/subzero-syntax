@@ -1,0 +1,117 @@
+@import './styles/syntax-variables.less';
+@import './styles/editor.less';
+@import './styles/languages.less';
+
+status-bar {
+  color: tint(@keyword-color, 25%);
+
+  a, a.icon,
+  .grammar-status a,
+  .encoding-status a,
+  .cursor-position a {
+    color: inherit;
+  }
+
+  .package-updates-status-view {
+    color: darken(@func-color, 10%);
+  }
+}
+
+atom-text-editor {
+
+  .highlight .region,
+  .find-result .region {
+    background: tint(lighten(@bkg, 5%), 8%);
+    border-color: tint(lighten(@bkg, 25%), 8%);
+    padding-right: 8px !important;
+  }
+
+  .current-result .region {
+    background: tint(lighten(@bkg, 5%), 15%);
+    border-color: tint(lighten(@bkg, 25%), 35%);
+  }
+
+  .highlight .region.highlight-selected {
+    @color: spin(@bkg, -35);
+    background: lighten(@color, 8%);
+    border-color: lighten(@color, 36%);
+  }
+
+  .syntax--less,
+  .syntax--sass,
+  .syntax--scss {
+
+    .syntax--constant,
+    .syntax--entity.syntax--tag,
+    .syntax--entity.syntax--class,
+    .syntax--property-list .syntax--entity {
+      color: darken(shade(@const-color, 14%), 16%);
+    }
+
+    .syntax--brace,
+    .syntax--punctuation {
+      color: darken(@keyword-color, 5%);
+    }
+
+    .syntax--numeric {
+      color: @num-color;
+    }
+
+    .syntax--property-name {
+      color: darken(@func-color, 8%); // darken(shade(@const-color, 20%), 15%);
+    }
+
+    .syntax--variable {
+      color: @var-color; // shade(darken(@var-color, 27%), 23%);
+    }
+  }
+
+  .syntax--js {
+
+    .syntax--entity,
+    .syntax--string.syntax--unquoted {
+      color: @txt;
+    }
+
+    // Reserved variable name
+    .syntax--accessor.syntax--keyword {
+      color: @var-color;
+    }
+
+    .syntax--brace {
+      color: @keyword-color;
+    }
+
+    .syntax--class,
+    .syntax--operator,
+    .syntax--conditional {
+      color: @txt;
+    }
+
+    .syntax--parameters .syntax--variable {
+      color: @txt;
+    }
+
+    // Function ref name
+    .syntax--function.syntax--name {
+      color: @txt;
+    }
+
+    // Method ref name, function declare name
+    .syntax--method-call > .syntax--function,
+    .syntax--function-call > .syntax--function,
+    .syntax--meta.syntax--function > .syntax--name {
+      color: @func-color;
+    }
+  }
+
+  // .syntax--coffee {
+  //   .syntax--string .syntax--embedded {
+  //     color: #11B32C;
+  //     transition: color 0.5s ease-out;
+  //     &:hover {
+  //       color: #66CC77;
+  //     }
+  //   }
+  // }
+}

@@ -1,6 +1,6 @@
 {
   "name": "subzero-syntax",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "theme": "syntax",
   "license": "MIT",
   "engines": {

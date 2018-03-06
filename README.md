@@ -1,4 +1,4 @@
-# subzero-syntax v1.0.0
+# subzero-syntax v1.0.2
 
 #### .js
 <img src="./images/js.png" width="50%"/>

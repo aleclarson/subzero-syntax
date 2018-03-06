@@ -1,13 +1,16 @@
 # subzero-syntax v1.0.0
 
-### .js
-![](./images/js.png)
+#### .js
+<img src="./images/js.png" width="50%"/>
 
-### .less
-![](./images/less.png)
+#### .less
+<img src="./images/less.png" width="50%"/>
 
-### .moon
-![](./images/moon.png)
+#### .moon
+<img src="./images/moon.png" width="50%"/>
+
+#### .md
+<img src="./images/md.png" width="50%"/>
 
 ### Tested languages
 

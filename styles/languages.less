@@ -65,7 +65,8 @@ atom-text-editor {
 }
 
 .syntax--string,
-.syntax--punctuation.syntax--definition.syntax--string,
+.syntax--string .syntax--escape,
+.syntax--string.syntax--punctuation.syntax--definition,
 .syntax--string .syntax--punctuation.syntax--section.syntax--embedded .syntax--source {
   font-weight: normal;
   font-style: normal;
@@ -161,14 +162,14 @@ atom-text-editor {
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
-  color: #032f62;
+  color: @string-color;
 }
 
 .syntax--string.syntax--regexp.syntax--character-class,
 .syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape,
 .syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded,
 .syntax--string.syntax--regexp .syntax--string.syntax--regexp.syntax--arbitrary-repitition {
-  color: #032f62;
+  color: @string-color;
 }
 
 .syntax--source.syntax--embedded {
@@ -177,7 +178,7 @@ atom-text-editor {
 
 .syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape {
   font-weight: bold;
-  color: #22863a;
+  color: @string-color;
 }
 
 .syntax--support.syntax--constant {

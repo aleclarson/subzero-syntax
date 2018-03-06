@@ -1,6 +1,13 @@
 # subzero-syntax v1.0.0
 
+### .js
+![](./images/js.png)
 
+### .less
+![](./images/less.png)
+
+### .moon
+![](./images/moon.png)
 
 ### Tested languages
 

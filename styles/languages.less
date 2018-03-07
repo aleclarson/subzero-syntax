@@ -144,6 +144,24 @@ atom-text-editor {
   color: @err-color;
 }
 
+// TODO: example
+.syntax--todo.syntax--type {
+  color: spin(@txt, -50);
+  background: lighten(spin(@bkg, -50), 10%);
+}
+
+// NOTE: example
+.syntax--note.syntax--type {
+  color: darken(shade(@num-color, 5%), 5%);
+  font-weight: 600;
+}
+
+// FIXME: example
+.syntax--fixme.syntax--type {
+  color: tint(@err-color, 25%);
+  background: darken(shade(@err-color, 12%), 25%);
+}
+
 .syntax--string .syntax--source {
   font-weight: normal;
   font-style: normal;

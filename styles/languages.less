@@ -1,30 +1,60 @@
 atom-text-editor {
+
+.syntax--operator,
+.syntax--conditional {
+  color: @txt;
+}
+
+.sytnax--new,
+.syntax--brace,
+.syntax--comma,
+.syntax--curly {
+  color: @keyword-color;
+}
+
+.syntax--punctuation {
+  color: @keyword-color;
+
+  &.syntax--escape,
+  &.syntax--embedded {
+    color: @string-color;
+  }
+
+  &.syntax--period {
+    color: @txt;
+  }
+}
+
 .syntax--comment,
 .syntax--punctuation.syntax--definition.syntax--comment,
 .syntax--string.syntax--comment {
   color: @comment-color !important;
 }
 
-.syntax--constant,
-.syntax--entity.syntax--name.syntax--constant,
-.syntax--variable.syntax--other.syntax--constant,
-.syntax--variable.syntax--language {
-  color: @var-color;
+.syntax--builtin {
+  color: @txt;
 }
 
-.syntax--numeric {
-  color: @num-color;
+.syntax--keyword {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: @keyword-color;
+}
+
+.syntax--constant {
+  color: @var-color;
 }
 
 .syntax--null,
 .syntax--boolean,
-.syntax--builtin,
+.syntax--numeric,
 .syntax--undefined {
-  color: @txt;
+  color: @const-color;
 }
 
-.syntax--keyword.syntax--operator.syntax--symbole,
-.syntax--keyword.syntax--other.syntax--mark {
+.syntax--numeric > .syntax--period {
+  color: @const-color;
 }
 
 .syntax--entity,
@@ -35,22 +65,11 @@ atom-text-editor {
   color: @bracket-color;
 }
 
-.syntax--variable.syntax--parameter.syntax--function {
-  color: @txt;
-}
-
 .syntax--entity.syntax--name.syntax--tag {
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
   color: @bracket-color;
-}
-
-.syntax--keyword {
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: none;
-  color: @keyword-color;
 }
 
 .syntax--storage,
@@ -78,26 +97,34 @@ atom-text-editor {
   color: @string-color !important;
 }
 
-.syntax--support,
-.syntax--entity.syntax--class {
+.syntax--class,
+.syntax--variable,
+.syntax--property,
+.syntax--accessor.syntax--keyword {
+  color: @txt;
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
-  color: @const-color;
+
+  &.syntax--assignment {
+    color: @var-color;
+  }
 }
 
-.syntax--meta.syntax--property-name {
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: none;
-  color: @var-color;
-}
+.syntax--function {
 
-.syntax--variable {
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: none;
-  color: @var-color;
+  &.syntax--storage {
+    color: @keyword-color;
+  }
+
+  &.syntax--parameter,
+  &.syntax--assignment {
+    color: @var-color;
+  }
+
+  &.syntax--entity {
+    color: @func-color;
+  }
 }
 
 // .syntax--variable.syntax--other {
@@ -145,60 +172,53 @@ atom-text-editor {
 }
 
 // TODO: example
-.syntax--todo.syntax--type {
+.syntax--todo.syntax--type.syntax--class {
   color: spin(@txt, -50);
   background: lighten(spin(@bkg, -50), 10%);
 }
 
 // NOTE: example
-.syntax--note.syntax--type {
-  color: darken(shade(@num-color, 5%), 5%);
+.syntax--note.syntax--type.syntax--class {
+  color: darken(shade(@const-color, 5%), 5%);
   font-weight: 600;
 }
 
 // FIXME: example
-.syntax--fixme.syntax--type {
+.syntax--fixme.syntax--type.syntax--class {
   color: tint(@err-color, 25%);
   background: darken(shade(@err-color, 12%), 25%);
 }
 
-.syntax--string .syntax--source {
-  font-weight: normal;
+// .syntax--string .syntax--source {
+//   font-weight: normal;
+//   font-style: normal;
+//   text-decoration: none;
+//   color: #24292e;
+// }
+//
+// .syntax--string .syntax--variable {
+//   font-weight: normal;
+//   font-style: normal;
+//   text-decoration: none;
+//   color: @var-color;
+// }
+
+.syntax--regexp {
+  color: @string-color;
   font-style: normal;
-  text-decoration: none;
-  color: #24292e;
-}
-
-.syntax--string .syntax--variable {
   font-weight: normal;
-  font-style: normal;
   text-decoration: none;
-  color: @var-color;
+
+  .syntax--constant,
+  .syntax--character,
+  .syntax--punctuation {
+    color: @string-color;
+  }
 }
 
-.syntax--source.syntax--regexp,
-.syntax--string.syntax--regexp {
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: none;
-  color: @string-color;
-}
-
-.syntax--string.syntax--regexp.syntax--character-class,
-.syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape,
-.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded,
-.syntax--string.syntax--regexp .syntax--string.syntax--regexp.syntax--arbitrary-repitition {
-  color: @string-color;
-}
-
-.syntax--source.syntax--embedded {
-  color: @string-color;
-}
-
-.syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape {
-  font-weight: bold;
-  color: @string-color;
-}
+// .syntax--source.syntax--embedded {
+//   color: @string-color;
+// }
 
 .syntax--support.syntax--constant {
   font-weight: normal;
@@ -207,9 +227,9 @@ atom-text-editor {
   color: @const-color;
 }
 
-.syntax--support.syntax--variable {
-  color: @var-color;
-}
+// .syntax--support.syntax--variable {
+//   color: @var-color;
+// }
 
 .syntax--meta.syntax--module-reference {
   color: #005cc5;
@@ -233,13 +253,13 @@ atom-text-editor {
   color: @keyword-color;
 }
 
-.syntax--quote {
-  color: @comment-color;
-
-  & > .syntax--quote {
-    color: @const-color;
-  }
-}
+// .syntax--quote {
+//   color: @comment-color;
+//
+//   & > .syntax--quote {
+//     color: @const-color;
+//   }
+// }
 
 .syntax--markup.syntax--italic {
   font-style: italic;
@@ -300,31 +320,6 @@ atom-text-editor {
 
 .syntax--meta.syntax--output {
   color: #005cc5;
-}
-
-.syntax--brackethighlighter.syntax--tag,
-.syntax--brackethighlighter.syntax--curly,
-.syntax--brackethighlighter.syntax--round,
-.syntax--brackethighlighter.syntax--square,
-.syntax--brackethighlighter.syntax--angle,
-.syntax--brackethighlighter.syntax--quote {
-  color: #586069;
-}
-
-.syntax--brackethighlighter.syntax--unmatched {
-  color: @err-color;
-}
-
-.syntax--sublimelinter.syntax--mark.syntax--error {
-  color: @err-color;
-}
-
-.syntax--sublimelinter.syntax--mark.syntax--warning {
-  color: #e36209;
-}
-
-.syntax--sublimelinter.syntax--gutter-mark {
-  color: #959da5;
 }
 
 .syntax--constant.syntax--other.syntax--reference.syntax--link,

@@ -5,13 +5,17 @@
 @txt: #4CA4BF;
 @hil: lighten(@bkg, 5%);
 
+@red: #F73161;
+@lime: #64FAA2;
+@twine: #F5EF93;
+@yellow: #F5EC62;
+
 // Language colors
-@err-color: #F73161;
+@err-color: @red;
 @var-color: #BBECFA;
-@num-color: #F5EF93;
-@func-color: #19FFE4;
-@const-color: #93DFF5;
-@string-color: #64FAA2;
+@func-color: #0EF0D2;
+@const-color: @twine;
+@string-color: @lime;
 @comment-color: #236275;
 @keyword-color: #247891;
 @bracket-color: shade(lighten(@keyword-color, 12%), 16%);
@@ -40,7 +44,7 @@
 @syntax-gutter-background-color-selected: @hil;
 
 // For git diff info. i.e. in the gutter
-@syntax-color-renamed: @string-color;
-@syntax-color-added: @func-color;
-@syntax-color-modified: @num-color;
+@syntax-color-renamed: @lime;
+@syntax-color-added: lighten(@func-color, 15%);
+@syntax-color-modified: lighten(@yellow, 15%);
 @syntax-color-removed: @err-color;

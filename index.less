@@ -42,11 +42,19 @@ atom-text-editor {
   .syntax--sass,
   .syntax--scss {
 
-    .syntax--constant,
     .syntax--entity.syntax--tag,
     .syntax--entity.syntax--class,
+    .syntax--constant.syntax--support,
     .syntax--property-list .syntax--entity {
-      color: darken(shade(@const-color, 14%), 16%);
+      color: darken(shade(#93DFF5, 14%), 16%);
+    }
+
+    .syntax--rgb-value {
+      color: @func-color;
+    }
+
+    .syntax--percentage {
+      color: shade(@const-color, 25%);
     }
 
     .syntax--brace,
@@ -54,73 +62,52 @@ atom-text-editor {
       color: darken(@keyword-color, 5%);
     }
 
-    .syntax--numeric {
-      color: @num-color;
-    }
-
     .syntax--property-name {
-      color: darken(@func-color, 8%); // darken(shade(@const-color, 20%), 15%);
+      color: #17F0D6;
     }
 
     .syntax--variable {
-      color: @var-color; // shade(darken(@var-color, 27%), 23%);
+      color: @var-color;
     }
   }
 
   .syntax--js {
 
-    .syntax--entity,
-    .syntax--string.syntax--unquoted {
-      color: @txt;
-    }
-
-    // Reserved variable name
-    .syntax--accessor.syntax--keyword {
-      color: @var-color;
-    }
-
-    .syntax--brace {
-      color: @keyword-color;
-    }
-
-    .syntax--class,
-    .syntax--operator,
-    .syntax--conditional {
-      color: @txt;
-    }
-
-    .syntax--parameters .syntax--variable {
-      color: @txt;
-    }
-
-    // Function ref name
-    .syntax--function.syntax--name {
-      color: @txt;
-    }
-
     .syntax--quasi .syntax--punctuation {
       color: @string-color;
     }
 
-    // Method ref name, function declare name
-    .syntax--method-call > .syntax--function,
-    .syntax--function-call > .syntax--function,
-    .syntax--meta.syntax--function > .syntax--name {
-      color: @func-color;
+    // Object key inner <span>
+    .syntax--string.syntax--unquoted {
+      color: unset;
+    }
 
-      .syntax--punctuation {
-        color: @txt;
-      }
+    // Variable assignment
+    .syntax--object.syntax--key,
+    .syntax--variable.syntax--dollar,
+    .syntax--variable.syntax--readwrite,
+    .syntax--parameters > .syntax--variable,
+    .syntax--meta.syntax--function > .syntax--name {
+      color: @var-color;
+    }
+
+    // Function calls
+    .syntax--method-call > .syntax--function,
+    .syntax--function-call > .syntax--function {
+      color: @func-color;
     }
   }
 
-  // .syntax--coffee {
-  //   .syntax--string .syntax--embedded {
-  //     color: #11B32C;
-  //     transition: color 0.5s ease-out;
-  //     &:hover {
-  //       color: #66CC77;
-  //     }
-  //   }
-  // }
+  .syntax--coffee {
+    .syntax--class.syntax--name {
+      color: @var-color;
+    }
+    .syntax--type.syntax--instance,
+    .syntax--function-call > .syntax--instance {
+      color: @func-color;
+    }
+    .syntax--object.syntax--destructured > .syntax--variable {
+      color: @var-color;
+    }
+  }
 }
